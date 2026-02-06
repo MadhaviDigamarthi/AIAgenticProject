@@ -70,11 +70,8 @@ class ExecutorAgent:
         self.storage = StorageTool()
 
     def execute(self, plan: List[str]):
-        # Step 1: Search papers
         papers = self.search_tool.search_papers()
         self.memory.store("selected_papers", papers)
-
-        # Step 2: Summarize papers
         summarized_results = []
         for paper in papers:
             summary = self.summarizer.summarize(paper["summary"])
@@ -87,8 +84,6 @@ class ExecutorAgent:
             })
 
         self.memory.store("summaries", summarized_results)
-
-        # Step 3: Store final output
         final_output = {
             "task": "Top 3 recent AI research papers on agriculture",
             "generated_on": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

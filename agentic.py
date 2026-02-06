@@ -2,7 +2,6 @@ import arxiv
 import json
 from datetime import datetime
 from typing import List, Dict
-# Memory Module
 class AgentMemory:
     def __init__(self):
         self.storage = {}
@@ -12,7 +11,6 @@ class AgentMemory:
 
     def retrieve(self, key):
         return self.storage.get(key)
-# Planner Agent
 class PlannerAgent:
     def create_plan(self, goal: str) -> List[str]:
         print("📌 Planning steps...")
@@ -23,7 +21,6 @@ class PlannerAgent:
             "Summarize each paper",
             "Store output in structured JSON format"
         ]
-# Search Tool (arXiv)
 class ResearchSearchTool:
     def search_papers(self, max_results=10) -> List[Dict]:
         print("🔍 Searching papers...")
@@ -56,18 +53,15 @@ class ResearchSearchTool:
                 break
 
         return papers
-# Summarization Tool
 class SummarizerTool:
     def summarize(self, text: str) -> str:
         sentences = text.split(". ")
         return ". ".join(sentences[:3]) + "."
-# Storage Tool
 class StorageTool:
     def save_to_json(self, data, filename="output.json"):
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         print(f"💾 Data saved to {filename}")
-# Executor Agent
 class ExecutorAgent:
     def __init__(self):
         self.memory = AgentMemory()
@@ -103,7 +97,6 @@ class ExecutorAgent:
 
         self.storage.save_to_json(final_output)
         return final_output
-# Autonomous Agent Controller
 class AutonomousAIAgent:
     def __init__(self):
         self.planner = PlannerAgent()
@@ -114,7 +107,6 @@ class AutonomousAIAgent:
         plan = self.planner.create_plan(goal)
         return self.executor.execute(plan)
 
-# Run the Agent
 if __name__ == "__main__":
     agent = AutonomousAIAgent()
     goal = "Find the top 3 recent AI research papers on agriculture, summarize them, and store the output"

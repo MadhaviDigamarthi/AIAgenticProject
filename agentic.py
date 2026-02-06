@@ -13,7 +13,7 @@ class AgentMemory:
         return self.storage.get(key)
 class PlannerAgent:
     def create_plan(self, goal: str) -> List[str]:
-        print("📌 Planning steps...")
+        print(" Planning steps...")
         return [
             "Search recent AI research papers related to agriculture",
             "Filter papers based on agriculture relevance",
@@ -23,7 +23,7 @@ class PlannerAgent:
         ]
 class ResearchSearchTool:
     def search_papers(self, max_results=10) -> List[Dict]:
-        print("🔍 Searching papers...")
+        print("Searching papers...")
 
         search = arxiv.Search(
             query='("agriculture" OR "crop" OR "farming" OR "precision agriculture" OR "irrigation") AND ("AI" OR "machine learning" OR "deep learning")',
@@ -61,7 +61,7 @@ class StorageTool:
     def save_to_json(self, data, filename="output.json"):
         with open(filename, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
-        print(f"💾 Data saved to {filename}")
+        print(f" Data saved to {filename}")
 class ExecutorAgent:
     def __init__(self):
         self.memory = AgentMemory()
@@ -98,7 +98,7 @@ class AutonomousAIAgent:
         self.executor = ExecutorAgent()
 
     def run(self, goal: str):
-        print("🎯 Goal:", goal)
+        print(" Goal:", goal)
         plan = self.planner.create_plan(goal)
         return self.executor.execute(plan)
 
@@ -107,5 +107,5 @@ if __name__ == "__main__":
     goal = "Find the top 3 recent AI research papers on agriculture, summarize them, and store the output"
     output = agent.run(goal)
 
-    print("\n✅ Final Output:")
+    print("\n Final Output:")
     print(json.dumps(output, indent=4))

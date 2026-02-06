@@ -6,8 +6,6 @@ Design an AI agent that can autonomously plan and execute a multi-step task usin
 ### User Goal
 Find the top 3 recent AI research papers on agriculture, summarize them, and store the output in a structured format.
 
----
-
 ## Solution Overview
 This project demonstrates an autonomous AI agent that:
 1. Understands the user goal
@@ -15,15 +13,11 @@ This project demonstrates an autonomous AI agent that:
 3. Executes the task
 4. Stores the final output in JSON format
 
----
-
 ## Task Decomposition
 1. Identify recent AI research papers related to agriculture  
 2. Select the top 3 relevant papers  
 3. Summarize each paper in simple language  
 4. Store the results in a structured JSON file  
-
----
 
 ## Output
 The final output is stored in:
@@ -35,7 +29,6 @@ It contains:
 - Domain
 - Summary
 
----
 
 ## Architecture
 The system follows an agent-based approach:
@@ -44,6 +37,3 @@ The system follows an agent-based approach:
 - Execution: Data selection and summarization
 - Output: Structured JSON storage
 
----
-
-## Files in This Repository
